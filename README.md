@@ -64,7 +64,6 @@ tools/
   test-extension.mjs     Playwright end-to-end tests against the real extension
   generate-icons.py      regenerates src/icons/ (needs Python + Pillow)
   build.py               packages src/ into dist/<name>-<version>.zip
-  pad-screenshot.py      pads a popup capture to Web Store dimensions
 ```
 
 ## Testing

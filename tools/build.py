@@ -25,6 +25,11 @@ DIST = os.path.join(ROOT, "dist")
 EXCLUDED_NAMES = {".DS_Store", "Thumbs.db", "desktop.ini"}
 EXCLUDED_SUFFIXES = (".map", ".orig", ".rej", "~")
 
+# Local-only scaffolding. preview-*.html pages stub out the chrome.* APIs so the
+# popup can be opened in a plain browser for screenshots; shipping them would put
+# dead pages and a fake API shim inside the published extension.
+EXCLUDED_PREFIXES = ("preview-",)
+
 errors = []
 warnings = []
 
@@ -40,6 +45,7 @@ def warn(msg):
 def collect_files():
     """Every file under src/, as (absolute path, path inside the archive)."""
     found = []
+    skipped = []
     for dirpath, dirnames, filenames in os.walk(SRC):
         dirnames[:] = sorted(d for d in dirnames if not d.startswith("."))
         for name in sorted(filenames):
@@ -47,10 +53,15 @@ def collect_files():
                 continue
             if name.endswith(EXCLUDED_SUFFIXES):
                 continue
+            if name.startswith(EXCLUDED_PREFIXES):
+                skipped.append(name)
+                continue
             absolute = os.path.join(dirpath, name)
             # Forward slashes: ZIP entry names are not OS paths.
             arcname = os.path.relpath(absolute, SRC).replace(os.sep, "/")
             found.append((absolute, arcname))
+    for name in skipped:
+        print(f"skipped (local-only): {name}")
     return found
 
 
