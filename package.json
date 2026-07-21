@@ -4,6 +4,8 @@
   "description": "Chrome extension for modifying HTTP headers on requests made by the browser. Useful for intercepting calls during development — for example forcing `Accept: application/json` so an API returns JSON instead of XML.",
   "main": "background.js",
   "scripts": {
+    "build": "python3 tools/build.py",
+    "icons": "python3 tools/generate-icons.py",
     "test": "node tools/test-extension.mjs"
   },
   "keywords": [],

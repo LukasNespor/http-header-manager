@@ -83,6 +83,26 @@ one live request against `httpbin.org` asserting a header really is rewritten.
 Not covered by the automated tests: behaviour in incognito windows, and hover/focus
 states. Those need a manual pass.
 
+## Packaging for the Chrome Web Store
+
+```bash
+npm run build
+```
+
+This validates the manifest — required fields, and that every file it references
+actually exists — then writes `dist/<name>-<version>.zip`. The archive holds the
+contents of `src/` at its root, which is what the Web Store expects; a ZIP with
+`manifest.json` nested inside a folder is rejected on upload.
+
+Bump `version` in **both** `src/manifest.json` and `package.json` before building. The
+Web Store refuses a version number it has already seen, and the build warns if the two
+files disagree.
+
+Upload the ZIP at the
+[Developer Dashboard](https://chrome.google.com/webstore/devconsole). A one-time
+registration fee applies, and a listing needs an icon, screenshots and a privacy
+justification for the `declarativeNetRequest` and `<all_urls>` permissions.
+
 ## Limitations
 
 - Only request headers are modified. Response headers are out of scope.
