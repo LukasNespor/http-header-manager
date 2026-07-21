@@ -1,0 +1,15 @@
+{
+  "name": "http-header-manager",
+  "version": "1.0.0",
+  "description": "Chrome extension for modifying HTTP headers on requests made by the browser. Useful for intercepting calls during development — for example forcing `Accept: application/json` so an API returns JSON instead of XML.",
+  "main": "background.js",
+  "scripts": {
+    "test": "node tools/test-extension.mjs"
+  },
+  "keywords": [],
+  "author": "Lukas Nespor",
+  "license": "0BSD",
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}
