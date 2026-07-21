@@ -1,4 +1,4 @@
-# HTTP Header Manager
+# HTTP Request Manager
 
 Chrome extension for modifying HTTP headers on requests made by the browser. Useful for
 intercepting calls during development — for example forcing `Accept: application/json`

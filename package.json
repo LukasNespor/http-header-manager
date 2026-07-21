@@ -1,5 +1,5 @@
 {
-  "name": "http-header-manager",
+  "name": "http-request-manager",
   "version": "1.0.0",
   "description": "Chrome extension for modifying HTTP headers on requests made by the browser. Useful for intercepting calls during development — for example forcing `Accept: application/json` so an API returns JSON instead of XML.",
   "main": "background.js",
