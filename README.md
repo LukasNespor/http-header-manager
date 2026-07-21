@@ -4,6 +4,8 @@ Chrome extension for modifying HTTP headers on requests made by the browser. Use
 intercepting calls during development — for example forcing `Accept: application/json`
 so an API returns JSON instead of XML.
 
+![The extension popup, showing three header rules with one toggled off](assets/screenshot.png)
+
 > **This extension was developed by AI.** The code, UI, icons and tests in this
 > repository were written by Claude. It has automated end-to-end tests against a
 > real Chrome instance, but review it yourself before trusting it with anything
